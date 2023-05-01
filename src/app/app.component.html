@@ -1,0 +1,31 @@
+<!--Top-bar-->
+<mat-toolbar>
+  <span class="first">Vishnu</span>&nbsp;<span class="last"> Polymers</span>
+    <div class="spacer"></div>
+    <div class="right">
+      <input type="checkbox" id="menu">
+      <label for="menu" class="checkbtn">Menu</label>
+      <ul>
+        <li class="module" (click)="home()">
+          <div class="home">
+            <a>
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </a>
+          </div>
+        </li>
+        <li class="line">|</li>
+        <li class="module" (click)="home()"><a>About</a></li>
+        <li class="line" *ngIf="hasLoggedUser">|</li>
+        <li class="module" *ngIf="hasLoggedUser" (click)="navigateTapInfo()"><a>Tap info &#9432;</a></li>
+        <li class="line" *ngIf="hasLoggedUser">|</li>
+        <li class="module" *ngIf="hasLoggedUser" (click)="navigateEntryDetails()"><a>Entry details &#9432;</a></li>
+        <li class="line" *ngIf="hasLoggedUser">|</li>
+        <li class="module" *ngIf="hasLoggedUser" (click)="navigateExitDetails()"><a>Exit details &#9432;</a></li>
+        <li class="line">|</li>
+        <li *ngIf="!hasLoggedUser"><input type="submit" (click)="logIn()" class="button" value="Login"></li>
+        <li *ngIf="hasLoggedUser"><input type="submit" (click)="logOut()" class="button" value="Logout"></li>
+      </ul>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

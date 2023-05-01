@@ -1,0 +1,66 @@
+<div class="tap-detail" *ngIf="hasLoggedUser">
+  <div (click)="onClickAdd()" class="add-entry">
+    <div id="add-icon"><mat-icon>add</mat-icon></div>
+    <span>Add entry</span>
+  </div>
+
+  <div *ngIf="addEntry" class="form">
+    <form [formGroup]="entryDetail">
+      <mat-icon id="close" (click)="closeForm()">close</mat-icon>
+      <h1><b>Tap entry details</b></h1>
+      <select formControlName="tapType" id="tap-types" aria-placeholder="Tap types" required>
+        <option value="" disabled selected>Choose any tap type</option>
+        <option *ngFor="let type of tapDetails" value="{{type.tapType}}">
+          {{type.tapName}}
+        </option>
+      </select>
+      <input type="text" formControlName="tapName" id="tap-name" placeholder="Tap name"><br>
+      <input type="date" formControlName="date" id="date" placeholder="Entry date">
+      <input type="number" formControlName="quantity" id="quantity" placeholder="Quantity">
+      <br>
+      <div class="amount-preview">
+        <span>Total amount is :</span><span id="amount-value"> {{amount}}</span>
+      </div>
+      <br>
+      <button mat-raised-button (click)="addNewEntry()" [disabled]="this.entryDetail.invalid"
+      *ngIf="hasShowAddButton">Add entry</button>
+      <button mat-raised-button (click)="UpdateEntry()" [disabled]="this.entryDetail.invalid"
+      *ngIf="!hasShowAddButton">Update</button>
+    </form>
+  </div>
+  <div class="snack-bar" *ngIf="hasAnyChanges">
+    <div><span>Warning!</span></div>
+    <p>If you are closing the form. You will be lose your changes!</p>
+    <button mat-raised-button id="ok" (click)="onOk()">Ok</button>
+    <button mat-raised-button id="cancel" (click)="onCancel()">Cancel</button>
+  </div>
+  <div class="tap-list-page">
+    <table>
+      <thead>
+          <tr>
+              <th class="head">Tap type</th>
+              <th class="head">Tap name</th>
+              <th class="head">Date</th>
+              <th class="head">Quantity</th>
+              <th class="head">Amount</th>
+              <th class="empty-head"></th>
+              <th class="empty-head"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of listDatas">
+            <td><span>{{item.tapType}}</span></td>
+              <td><span>{{item.tapName}}</span></td>
+              <td><span style="color: rgb(223, 132, 48);">{{item.date | date:"mediumDate"}}</span></td>
+              <td><span>{{item.quantity}}</span></td>
+              <td><span>{{item.amount}}</span></td>
+              <td class="icon"><mat-icon id="edit" (click)="OnEdit(item.id)">edit</mat-icon></td>
+              <td class="icon"><mat-icon id="delete" (click)="DeleteEntry(item.id)">delete</mat-icon></td>
+          </tr>
+      </tbody>
+  </table>
+  <div id="no-result-text" *ngIf="listDatas.length == 0">
+    No result to display!
+  </div>
+  </div>
+</div>

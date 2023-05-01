@@ -1,0 +1,206 @@
+.tap-detail {
+  width: 100%;
+  height: 100%;
+  margin-top: 80px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.add-entry {
+  position: absolute;
+  display: inline-block;
+  margin-left: 82%;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  background: #ffff;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.add-entry:hover {
+  width: 200px;
+}
+
+.add-entry #add-icon {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 50px;
+}
+
+.add-entry:nth-child(1) #add-icon {
+  background: rgb(113, 30, 180);
+}
+
+.add-entry #add-icon mat-icon {
+  font-size: 25px;
+  line-height: 50px;
+  transition: all 0.3s ease-out;
+}
+
+.add-entry span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 50px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.add-entry:nth-child(1) span {
+  color: rgb(113, 30, 180);
+}
+
+.form {
+  position: absolute;
+  width: 30%;
+  height: 460px;
+  border-radius: 25px;
+  margin-top: 80px;
+  margin-left: 65%;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.snack-bar {
+  position: absolute;
+  background-color: white;
+  width: 400px;
+  height: 170px;
+  border-radius: 10px;
+  margin: 15% 0 0 35%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.snack-bar div {
+  padding: 10px;
+}
+
+.snack-bar div span {
+  font-size: 20px;
+}
+
+.snack-bar p {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.snack-bar #ok {
+  margin-left: 55%;
+  background-color: rgb(199, 97, 13);
+}
+
+.snack-bar #cancel {
+  margin-left: 5px;
+  background-color: rgb(113, 30, 180);
+}
+
+#close {
+  font-size: 30px;
+  color: rgb(113, 30, 180);
+  position: absolute;
+  margin: 10px 0 0 90%;
+}
+
+#close:hover {
+  cursor: pointer;
+}
+
+.form h1 {
+  margin-left: 30%;
+  padding-top: 10px;
+}
+
+#tap-types,
+#tap-name,
+#date,
+#quantity,
+#receiver {
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 300px;
+  margin-left: 10%;
+}
+
+#tap-types {
+  width: 325px;
+}
+
+.amount-preview {
+  position: absolute;
+  margin: 20px 0 0 28%;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(2, 45, 56);
+}
+
+.form button {
+  background-color: rgb(113, 30, 180);
+  width: 150px;
+  margin-top: 33px;
+  margin-left: 30%;
+  border-radius: 25px;
+}
+
+#amount-value {
+  color: rgb(207, 124, 45);
+}
+
+table {
+  margin-left: 2%;
+  border-collapse: collapse;
+  width: 75%;
+  border: 1px solid rgb(113, 30, 180);
+  font-size: 20px;
+}
+
+tr {
+  transition: all .2s ease-in;
+}
+
+thead {
+  background-color: rgb(113, 30, 180);
+  color: white;
+}
+
+.head,
+tbody td {
+  padding: 15px 20px;
+  width: 200px;
+  text-align: center;
+}
+
+tbody{
+  font-size: medium;
+}
+
+.empty-head,
+tbody tr .icon {
+  padding: 15px 5px;
+  width: 50px;
+  text-align: center;
+}
+
+tbody tr:hover {
+  box-shadow: 2px 2px 12px rgb(208, 145, 245), -1px -1px 8px rgb(199, 128, 240) //background-color: rgb(206, 187, 214);
+}
+
+#edit:hover,
+#delete:hover {
+  cursor: pointer;
+}
+
+#no-result-text {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 24px;
+}

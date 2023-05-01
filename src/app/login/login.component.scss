@@ -1,0 +1,331 @@
+// .user-info{
+//   margin-top: 5%;
+//   position: fixed;
+//   left: 33%;
+// }
+
+// // .login, .signUp{
+// //   width: 450px;
+// //   height: 300px;
+// //   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+// // }
+
+// .signUp{
+//   height: 400px;
+// }
+
+// #user-name, #email, #psw{
+//   padding: 10px;
+//   margin: 0 15%;
+//   margin-top: 20px;
+//   border-radius: 5px;
+//   width: 300px;
+// }
+
+// #user-name{
+//   margin-top: 15px;
+// }
+
+// .top{
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-left: 40%;
+// }
+
+// .top h1{
+//   padding-top: 20px;
+// }
+
+// //Close icon
+// .top mat-icon{
+//   display: block;
+//   position: fixed;
+//   padding-top: 15px;
+//   font-size: 30px;
+//   margin-left: 16%;
+//   cursor: pointer;
+//   transition: 1s;
+// }
+
+// // .top mat-icon:hover{
+// //   transform-origin: 25px;
+// //   transform: rotate(360deg);
+// // }
+
+// .signUp .top{
+//   border-radius: 50%;
+//   margin-left: 30%;
+// }
+
+// .signUp .top mat-icon{
+//   margin-left: 20%;
+// }
+
+// .signup-button{
+//   background-color: rgb(89, 166, 238);
+//   width: 180px;
+//   margin-top: 30px;
+//   margin-left: 30%;
+// }
+
+// .login-button{
+//   position: absolute;
+//   margin-left: 15%;
+//   margin-top: 30px;
+//   background-color: rgb(89, 166, 238);
+//   width: 150px;
+// }
+
+// .create-navigation-button{
+//   margin-top: 30px;
+//   margin-left: 53%;
+//   background-color: rgb(233, 119, 25);
+//   width: 150px;
+// }
+
+// #login-redirection{
+//   margin-left: 15%;
+// }
+
+// a{
+//   color: rgb(233, 119, 25);
+//   font-size: 20px;
+//   font-weight: bold;
+//   margin-left: 2%;
+//   cursor: pointer;
+// }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eff0f4;
+}
+
+.login, .create-account{
+  position: relative;
+  left: -80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05),
+  25px 35px 20px rgba(0,0,0,0.05),
+  25px 35px 30px rgba(0,0,0,0.05),
+  inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  transition: 0.5s ease-in-out;
+  border-radius: 52% 48% 33% 67% / 38% 45% 55% 62%;
+}
+
+.create-account .drop{
+  width: 420px;
+  height: 420px;
+}
+
+.drop:hover{
+  border-radius: 50%;
+}
+
+.drop::before{
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 85px;
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+
+.drop::after{
+  content: '';
+  position: absolute;
+  top: 90px;
+  left: 110px;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+
+.drop .content{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.drop .content h1{
+  position: relative;
+  color: black;
+  font-size: 1.5em;
+}
+
+.drop .content form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop .content form .inputBox{
+  position: relative;
+  width: 255px;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.1),
+  inset -2px -5px 10px rgba(255, 255, 255, 1),
+  15px 15px 10px rgba(0,0,0,0.05),
+  15px 10px 15px rgba(0,0,0,0.25);
+  border-radius: 25px;
+}
+
+.drop .content form .inputBox::before{
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50px;
+  transform: translateX(-50px);
+  width: 65px;
+  height: 5px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
+
+.drop .content form .inputBox input{
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1em;
+  padding: 10px 15px;
+}
+
+.drop .content form .inputBox input[type="submit"]{
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.drop .content form .inputBox:last-child{
+  width: 120px;
+  background: #ff1493;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.1),
+  15px 15px 10px rgba(0,0,0,0.05),
+  15px 10px 15px rgba(0,0,0,0.25);
+  transition: 0.5s;
+}
+
+.create-account .drop .content form .inputBox:last-child{
+  width: 150px;
+}
+
+.drop .content form .inputBox:last-child:hover
+{
+  width: 150px;
+}
+
+
+.create-account .drop .content form .inputBox:last-child:hover{
+  width: 180px;
+}
+.btns{
+  position: absolute;
+  right: -120px;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  background: #c61dff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
+  transition: 0.25s;
+  text-align: center;
+  box-shadow: inset 10px 10px 10px rgba(190, 1, 254, 0.05),
+  15px 25px 10px rgba(190, 1, 254, 0.1),
+  15px 20px 20px rgba(190, 1, 254, 0.1),
+  inset -10px -10px 15px rgba(255,255,255,0.5);
+  border-radius: 44% 56% 65% 35% / 57% 58% 42% 43%;
+}
+
+.btns::before{
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.45;
+}
+
+.btns.signup{
+  bottom: 150px;
+  right: -140px;
+  width: 80px;
+  height: 80px;
+  border-radius: 68% 32% 52% 48% / 63% 67% 33% 37%;
+  background: #01b4ff;
+  box-shadow: inset 10px 10px 10px rgba(1, 180, 255, 0.05),
+  15px 25px 10px rgba(1, 180, 255, 0.1),
+  15px 20px 20px rgba(1, 180, 255, 0.1),
+  inset -10px -10px 15px rgba(255,255,255,0.5);
+}
+
+.btns.signup::before{
+  left: 20px;
+  width: 15px;
+  height: 15px;
+}
+
+.btns.close{
+  bottom: 320px;
+  right: -50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 68% 32% 52% 48% / 63% 67% 33% 37%;
+  background: #f17c7c;
+  box-shadow: inset 10px 10px 10px rgba(255, 1, 1, 0.05),
+  15px 25px 10px rgba(255, 1, 1, 0.1),
+  15px 20px 20px rgba(255, 1, 1, 0.01),
+  inset -10px -10px 15px rgba(255,255,255,0.5);
+}
+
+
+.btns.close::before{
+  left: 5px;
+  width: 10px;
+  height: 10px;
+}
+
+.btns:hover{
+  border-radius: 50%;
+}

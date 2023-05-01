@@ -1,0 +1,55 @@
+<div class="tap-info">
+    <div (click)="onClickAdd()" class="add-new-tap">
+      <div id="add-icon"><mat-icon>add</mat-icon></div>
+      <span>Add tap</span>
+    </div>
+
+    <div class="add-tap" *ngIf="addTap">
+        <form [formGroup]="tapInfo">
+            <div class="form">
+                <mat-icon id="close" (click)="closeTap()">close</mat-icon>
+                <h1><b>Tap details</b></h1>
+                <input type="text" formControlName="tapType" id="tap-type" placeholder="Tap type"> <br>
+                <input type="text" formControlName="tapName" id="tap-name" placeholder="Tap name"> <br>
+                <input type="text" formControlName="amount" id="amount" placeholder="Amount">
+                <br>
+                <button mat-raised-button (click)="addNewTap()" [disabled]="this.tapInfo.invalid"
+                *ngIf="hasShowAddButton" class="add-tap-entry">Add Tap</button>
+                <button mat-raised-button (click)="UpdateTap()" [disabled]="this.tapInfo.invalid"
+                *ngIf="!hasShowAddButton" class="add-tap-entry">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="snack-bar" *ngIf="hasAnyChanges">
+       <div><span>Warning!</span></div>
+      <p>If you are closing the form. You will be lose your changes!</p>
+      <button mat-raised-button id="ok" (click)="onOk()">Ok</button>
+      <button mat-raised-button id="cancel" (click)="onCancel()">Cancel</button>
+    </div>
+    <table>
+            <thead>
+                <tr>
+                    <th class="head">Tap type</th>
+                    <th class="head">Tap name</th>
+                    <th class="head">Amount</th>
+                    <th class="empty-head"></th>
+                    <th class="empty-head"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listDatas">
+                    <td><span>{{item.tapType }}</span></td>
+                    <td><span>{{item.tapName}}</span></td>
+                    <td><span style="color: rgb(223, 132, 48);">{{item.amount}}</span></td>
+                    <td class="icon"><mat-icon id="edit" (click)="OnEdit(item.id)">edit</mat-icon></td>
+                    <td class="icon"><mat-icon id="delete" (click)="DeleteEntry(item.id)">delete</mat-icon></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div id="no-result-text" *ngIf="listDatas.length == 0">
+          No result to display!
+        </div>
+    </div>
+
+

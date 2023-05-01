@@ -1,0 +1,266 @@
+.tap-info {
+  width: 100%;
+  margin-top: 80px;
+  position: absolute;
+}
+
+.add-new-tap {
+  position: absolute;
+  display: inline-block;
+  margin-left: 82%;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  background: #ffff;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.add-new-tap:hover {
+  width: 200px;
+}
+
+.add-new-tap #add-icon {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 50px;
+}
+
+.add-new-tap:nth-child(1) #add-icon {
+  background: rgb(113, 30, 180);
+}
+
+.add-new-tap #add-icon mat-icon {
+  font-size: 25px;
+  line-height: 50px;
+  transition: all 0.3s ease-out;
+}
+
+.add-new-tap span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 50px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.add-new-tap:nth-child(1) span {
+  color: rgb(113, 30, 180);
+}
+
+.form {
+  position: absolute;
+  background: white;
+  margin-left: 65%;
+  margin-top: 120px;
+  width: 30%;
+  height: 350px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.snack-bar {
+  position: absolute;
+  background-color: white;
+  width: 400px;
+  height: 170px;
+  border-radius: 10px;
+  margin: 15% 0 0 35%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.snack-bar div {
+  padding: 10px;
+}
+
+.snack-bar div span {
+  font-size: 20px;
+}
+
+.snack-bar p {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.snack-bar #ok {
+  margin-left: 55%;
+  background-color: rgb(199, 97, 13);
+}
+
+.snack-bar #cancel {
+  margin-left: 5px;
+  background-color: rgb(113, 30, 180);
+}
+
+#close {
+  font-size: 30px;
+  color: rgb(113, 30, 180);
+  position: absolute;
+  margin: 10px 0 0 90%;
+  cursor: pointer;
+}
+
+.form h1 {
+  margin-left: 30%;
+  padding-top: 10px;
+}
+
+#tap-type,
+#tap-name,
+#amount {
+  padding: 10px;
+  margin-left: 10%;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.add-tap button {
+  background-color: rgb(113, 30, 180);
+  width: 150px;
+  margin: 30px 0 0 33%;
+  border-radius: 25px;
+}
+
+table {
+  position: absolute;
+  margin-left: 2%;
+  width: 75%;
+  overflow-y: scroll;
+  border-collapse: collapse;
+  border: 1px solid rgb(113, 30, 180);
+  //box-shadow: 2px 2px 12px rgb(130, 52, 194), -1px -1px 8px rgb(130, 52, 194);
+  font-size: 20px;
+}
+
+tbody tr {
+  height: 50px;
+  transition: all .2s ease-in;
+}
+
+.head,
+.empty-head {
+  background-color: rgb(113, 30, 180);
+  color: white;
+}
+
+.head,
+tbody td {
+  padding: 15px 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.empty-head,
+tbody tr .icon {
+  padding: 15px 5px;
+  width: 50px;
+  text-align: center;
+}
+
+tbody tr:hover {
+  //transform: scale(1.02);
+  box-shadow: 2px 2px 12px rgb(208, 145, 245), -1px -1px 8px rgb(199, 128, 240)
+}
+
+#edit:hover,
+#delete:hover {
+  cursor: pointer;
+}
+
+#no-result-text {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 24px;
+}
+
+
+//Screen width 375
+@media (max-width:375px) {
+  .tap-info {
+    width: 100%;
+    margin-top: 50px;
+    position: absolute;
+    font-size: medium;
+  }
+
+  table{
+    margin-top: 40px;
+    font-size: 15px;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .add-new-tap {
+    position: absolute;
+    margin-top: 0;
+    margin-left: 60%;
+    height: 30px;
+    width: 30px;
+  }
+
+  .add-new-tap:hover {
+    width: 120px;
+  }
+
+  .add-new-tap #add-icon {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+  }
+
+  .add-new-tap #add-icon mat-icon {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .add-new-tap span {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+  }
+
+  .form {
+    background: white;
+    margin-left: 15%;
+    width: 70%;
+    z-index: 1000;
+  }
+
+  .form h1 {
+    margin-left: 25%;
+    font-weight: 300;
+  }
+
+  #tap-type,
+  #tap-name,
+  #amount {
+    padding: 10px;
+    margin-left: 6%;
+    width: 80%;
+  }
+
+  .add-tap button {
+    width: 120px;
+    margin: 30px 0 0 25%;
+  }
+
+  #close {
+    font-size: 25px;
+    margin: 10px 0 0 85%;
+  }
+
+  #no-result-text {
+    margin-top: 40%;
+    font-size: 20px;
+  }
+}
