@@ -1,20 +1,5 @@
 <body>
   <div class="user-info">
-    <!-- <div *ngIf="hasLogin" class="login">
-      <form [formGroup]="loginInfo">
-        <div class="form">
-          <div class="top">
-            <h1><b>Login</b></h1>
-            <mat-icon id="close" (click)="onCloseWindow()">close</mat-icon>
-          </div>
-          <input type="email" formControlName="email" id="email" placeholder="Email"><br>
-          <input type="password" formControlName="psw" id="psw" placeholder="password">
-          <br>
-          <button mat-raised-button (click)="login()" class="login-button">Log in</button>
-          <button mat-raised-button (click)="navigateToCreateAccount()" class="create-navigation-button">Create Account</button>
-        </div>
-      </form>
-    </div> -->
     <div *ngIf="hasLogin" class="login">
       <div class="drop">
         <div class="content">
@@ -29,9 +14,6 @@
             <div class="inputBox">
               <input type="submit" value="Log in" (click)="login()">
             </div>
-            <!-- <button mat-raised-button (click)="login()" class="login-button">Log in</button>
-            <button mat-raised-button (click)="navigateToCreateAccount()" class="create-navigation-button">Create -->
-              <!-- Account</button> -->
           </form>
         </div>
       </div>
@@ -39,26 +21,6 @@
       <a class="btns signup" (click)="navigateToCreateAccount()">Signup</a>
       <a class="btns close"><mat-icon id="close" (click)="onCloseWindow()">close</mat-icon> </a>
     </div>
-
-    <!-- sign up -->
-    <!-- <div *ngIf="hasCreateAccount" class="create-account">
-      <form [formGroup]="signUpInfo">
-        <div class="signUp">
-          <div class="top">
-            <h1><b>Create account</b></h1>
-            <mat-icon id="close" (click)="onCloseWindow()">close</mat-icon>
-          </div>
-          <input type="text" formControlName="username" id="user-name" placeholder="User name"> <br>
-          <input type="email" formControlName="email" id="email" placeholder="Email"><br>
-          <input type="password" formControlName="psw" id="psw" placeholder="password">
-          <br>
-          <button mat-raised-button (click)="createAccount()" class="signup-button">Create account</button>
-          <br>
-          <br>
-          <b id="login-redirection">Already have an account?</b><a (click)="navigateLogin()">Login</a>
-        </div>
-      </form>
-    </div> -->
 
     <div *ngIf="hasCreateAccount" class="create-account">
       <div class="drop">
