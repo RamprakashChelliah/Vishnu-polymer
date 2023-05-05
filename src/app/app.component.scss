@@ -101,14 +101,64 @@ mat-icon, span, .home{
     font-weight: 300;
   }
 
+  // .checkbtn{
+  //   width: 30px;
+  //   height: 30px;
+  //   color: #fff;
+  //   float: right;
+  //   line-height: 30px;
+  //   display: block;
+  //   cursor: pointer;
+  // }
+
   .checkbtn{
+    position: relative;
     width: 30px;
     height: 30px;
-    color: #fff;
-    float: right;
-    line-height: 30px;
-    display: block;
-    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .checkbtn span{
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: #001b29;
+    border-radius: 4px;
+    transition: 0.5s;
+  }
+
+  .checkbtn span:nth-child(1){
+    transform: translateY(-5px);
+    width: 15px;
+    left: 5px;
+  }
+
+  .checkbtn span:nth-child(2){
+    transform: translateY(5px);
+    width: 10px;
+    left: 5px;
+  }
+
+  #menu:checked ~ .checkbtn span:nth-child(1){
+    width: 20px;
+    transform: translateY(0px) rotate(45deg);
+    transition-delay: 0.125s;
+  }
+
+  #menu:checked ~ .checkbtn span:nth-child(2){
+    width: 20px;
+    transform: translateY(0px) rotate(315deg);
+    transition-delay: 0.25s;
+  }
+
+  #menu:checked ~ .checkbtn span:nth-child(3){
+    transform: translateX(60px);
   }
 
   .spacer{
