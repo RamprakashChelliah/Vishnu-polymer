@@ -1,12 +1,13 @@
 .tap-info {
   width: 100%;
-  margin-top: 80px;
+  margin-top: 60px;
   position: absolute;
 }
 
 .add-new-tap {
   position: absolute;
   display: inline-block;
+  margin-top: 2.5%;
   margin-left: 82%;
   height: 50px;
   width: 50px;
@@ -131,8 +132,36 @@
   border-radius: 25px;
 }
 
+.search{
+  position: absolute;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  top: -2%;
+  width: 33%;
+  border: 2px solid #001b29;
+  border-radius: 25px;
+}
+
+#search-bar{
+  margin-left: 2%;
+  width: 80%;
+  padding: 8px;
+  border: none;
+  border-radius: 25px;
+}
+
+#search-bar:focus{
+  outline: none;
+}
+
+.filter{
+  margin-left: 40%;
+  font-size: 25px;
+}
+
 table {
   position: absolute;
+  margin-top: 1%;
   margin-left: 2%;
   width: 75%;
   overflow-y: scroll;
@@ -143,7 +172,7 @@ table {
 }
 
 tbody tr {
-  height: 50px;
+  height: 40px;
   transition: all .2s ease-in;
 }
 
@@ -151,11 +180,12 @@ tbody tr {
 .empty-head {
   background-color: rgb(113, 30, 180);
   color: white;
+  height: 15px;
 }
 
 .head,
 tbody td {
-  padding: 15px 20px;
+  padding: 10px 20px;
   width: 200px;
   text-align: center;
 }
@@ -193,8 +223,22 @@ tbody tr:hover {
     font-size: medium;
   }
 
+  .search{
+    margin-left: 5%;
+    width: 40%;
+  }
+
+  #search-bar{
+    width: 73%;
+  }
+
+  .filter{
+    margin-left: 53%;
+    font-size: 20px;
+  }
+
   table{
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 15px;
     width: 90%;
     margin-left: 5%;
@@ -203,7 +247,7 @@ tbody tr:hover {
   .add-new-tap {
     position: absolute;
     margin-top: 0;
-    margin-left: 60%;
+    margin-left: 68%;
     height: 30px;
     width: 30px;
   }
