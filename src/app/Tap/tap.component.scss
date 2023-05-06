@@ -228,8 +228,14 @@ tbody tr:hover {
     width: 45%;
   }
 
+  .search mat-icon{
+    margin-top: 2%;
+    margin-left: 85%;
+  }
+
   #search-bar{
     width: 73%;
+    position: absolute;
   }
 
   .filter{
