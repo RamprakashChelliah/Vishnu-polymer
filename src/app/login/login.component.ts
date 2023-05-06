@@ -125,11 +125,13 @@ export class LoginComponent{
   navigateLogin(){
     this.hasCreateAccount = false;
     this.hasLogin = true;
+    this.hasChangePassword = false;
   }
 
   navigateToCreateAccount(){
     this.hasCreateAccount = true;
     this.hasLogin = false;
+    this.hasChangePassword = false;
   }
 
   navigateToChangePassword(){
