@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 body{
   display: flex;
   justify-content: center;
@@ -13,7 +12,7 @@ body{
   background: #eff0f4;
 }
 
-.login, .create-account{
+.login, .create-account, .forget-password{
   position: relative;
   left: -80px;
   display: flex;
@@ -149,7 +148,6 @@ body{
   width: 150px;
 }
 
-
 .create-account .drop .content form .inputBox:last-child:hover{
   width: 180px;
 }
@@ -222,7 +220,6 @@ body{
   inset -10px -10px 15px rgba(255,255,255,0.5);
 }
 
-
 .btns.close::before{
   left: 5px;
   width: 10px;
@@ -235,7 +232,7 @@ body{
 
 //Screen width 480
 @media (max-width:480px){
-  .login, .create-account{
+  .login, .create-account, .forget-password{
     left: -25px;
   }
 
@@ -244,6 +241,11 @@ body{
     height: 300px;
   }
 
+  .create-account .drop{
+    width: 320px;
+    height: 320px;
+    left: 15px;
+  }
 
   .drop::before{
     top: 50px;
@@ -259,10 +261,18 @@ body{
     height: 10px;
   }
 
-
   .drop .content{
     gap: 10px;
     margin-top:0;
+  }
+
+  .create-account .drop .content{
+    gap: 5px;
+    margin-top:0;
+  }
+
+  .create-account .drop .content form{
+    gap: 10px;
   }
 
   .drop .content form .inputBox{
@@ -279,6 +289,15 @@ body{
     width: 110px;
   }
 
+  .create-account .drop .content form .inputBox:last-child{
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+
+  .create-account .drop .content form .inputBox:last-child:hover{
+    width: 150px;
+  }
+
   //button close
   .btns.close{
     bottom: 270px;
@@ -293,12 +312,24 @@ body{
     height: 8px;
   }
 
+  .create-account .btns.close{
+    bottom: 290px;
+    left: 90%;
+  }
+
   .btns{
     position: absolute;
     left: 55%;
     width: 80px;
     height: 80px;
     bottom: -100px;
+  }
+  .create-account .btns{
+    left: 75%;
+  }
+
+  .forget-password .btns{
+    left: 85%;
   }
 
   .btns::before{
@@ -321,6 +352,4 @@ body{
     width: 15px;
     height: 15px;
   }
-
-
 }

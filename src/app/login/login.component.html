@@ -17,7 +17,7 @@
           </form>
         </div>
       </div>
-      <a href="#" class="btns">Forget password</a>
+      <a class="btns" (click)="navigateToChangePassword()">Forget password</a>
       <a class="btns signup" (click)="navigateToCreateAccount()">Signup</a>
       <a class="btns close"><mat-icon id="close" (click)="onCloseWindow()">close</mat-icon> </a>
     </div>
@@ -38,6 +38,28 @@
               </div>
               <div class="inputBox">
                 <input type="submit" value="Create account" (click)="createAccount()">
+              </div>
+            </form>
+          </div>
+        </div>
+      <a class="btns" (click)="navigateLogin()">Login</a>
+      <a class="btns close"><mat-icon id="close" (click)="onCloseWindow()">close</mat-icon> </a>
+    </div>
+
+    <!--Forget password screen-->
+    <div *ngIf="hasChangePassword" class="forget-password">
+      <div class="drop">
+        <div class="content">
+          <h1><b>Change password</b></h1>
+            <form [formGroup]="userInfo">
+              <div class="inputBox">
+                <input type="email" formControlName="email" id="email" placeholder="Email"><br>
+              </div>
+              <div class="inputBox">
+                <input type="password" formControlName="psw" id="psw" placeholder="password">
+              </div>
+              <div class="inputBox">
+                <input type="submit" value="Submit" (click)="changePassword()">
               </div>
             </form>
           </div>

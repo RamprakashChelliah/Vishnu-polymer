@@ -14,19 +14,27 @@ export class LoginComponent{
   title = 'Vishnu-polymers';
   hasLogin = true;
   hasCreateAccount = false;
+  hasChangePassword = false;
   loginInfo: FormGroup;
   signUpInfo: FormGroup;
+  userInfo: FormGroup;
   responseMessage: any;
 
   constructor(private fb:FormBuilder, private router: Router, private service: SharedService,
      private http: HttpClient, private snackbar: SnackbarComponent){
-    this.loginInfo = this.fb.group({
+
+      this.loginInfo = this.fb.group({
         email: ['', Validators.required],
         psw: ['', Validators.required],
       })
 
       this.signUpInfo = this.fb.group({
         username: ['', Validators.required],
+        email: ['', Validators.required],
+        psw: ['', Validators.required],
+      })
+
+      this.userInfo = this.fb.group({
         email: ['', Validators.required],
         psw: ['', Validators.required],
       })
@@ -92,6 +100,28 @@ export class LoginComponent{
     }
   }
 
+  changePassword(){
+    var hasAnyError = false;
+    this.http.put<any>("http://localhost:8000/auth/password-reset", {
+      email: this.userInfo.value.email,
+      password: this.userInfo.value.psw
+    }).subscribe(x => {
+      this.responseMessage = x,
+      this.snackbar.openSnackbar(this.responseMessage);
+        (err) => {
+          hasAnyError = true,
+          this.responseMessage = err.error,
+          this.snackbar.openSnackbar(this.responseMessage);
+        }
+      });
+
+    if(hasAnyError){
+      return;
+    }
+    this.hasChangePassword = false;
+    this.navigateLogin();
+  }
+
   navigateLogin(){
     this.hasCreateAccount = false;
     this.hasLogin = true;
@@ -100,6 +130,12 @@ export class LoginComponent{
   navigateToCreateAccount(){
     this.hasCreateAccount = true;
     this.hasLogin = false;
+  }
+
+  navigateToChangePassword(){
+    this.hasCreateAccount = false;
+    this.hasLogin = false;
+    this.hasChangePassword = true;
   }
 
 }

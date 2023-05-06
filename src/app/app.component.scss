@@ -92,6 +92,7 @@ mat-icon, span, .home{
 
 #menu, .checkbtn{
   display: none;
+  margin-left: 130px;
 }
 
 //Screen width 480
@@ -101,23 +102,14 @@ mat-icon, span, .home{
     font-weight: 300;
   }
 
-  // .checkbtn{
-  //   width: 30px;
-  //   height: 30px;
-  //   color: #fff;
-  //   float: right;
-  //   line-height: 30px;
-  //   display: block;
-  //   cursor: pointer;
-  // }
-
   .checkbtn{
-    position: relative;
+    position: absolute;
     width: 30px;
     height: 30px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+    bottom: 5px;
+    //background: #fff;
+    //box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    //border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +120,7 @@ mat-icon, span, .home{
     position: absolute;
     width: 20px;
     height: 2px;
-    background: #001b29;
+    background: #fff;
     border-radius: 4px;
     transition: 0.5s;
   }
