@@ -47,7 +47,6 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
       this.listDatas.forEach(element => {
         let tapType = this.tapDetails.find(x => x.tapType == element.tapType);
         element.tapType = tapType.tapName;
-        console.log(tapType.tapName);
       });
     });
 
@@ -139,7 +138,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
           "searchText": s
         }
       }))
-    ).subscribe(x => {this.listDatas = x, console.log(x)});
+    ).subscribe(x => {this.listDatas = x});
 
     this.originalValue = this.entryDetail.getRawValue();
 

@@ -119,13 +119,9 @@ export class TapComponent implements OnInit{
           "searchText": s
         }
       }))
-    ).subscribe(x => {this.listDatas = x, console.log(x)})
+    ).subscribe(x => {this.listDatas = x})
 
     this.originalValue = this.tapInfo.getRawValue();
-  }
-
-  onSearch(){
-
   }
 
   OnEdit(id){

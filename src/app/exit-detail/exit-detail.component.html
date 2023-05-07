@@ -35,18 +35,27 @@
     <button mat-raised-button id="ok" (click)="onOk()">Ok</button>
     <button mat-raised-button id="cancel" (click)="onCancel()">Cancel</button>
   </div>
+  <form [formGroup]="searchForm">
+    <div class="search">
+      <input type="text" placeholder="Search with name" formControlName="search" id="search-bar">
+      <mat-icon>search</mat-icon>
+    </div>
+  </form>
+  <div class="filter">
+    <mat-icon>filter_list</mat-icon>
+  </div>
   <div class="tap-list-page">
     <table>
       <thead>
           <tr>
-              <th class="head">Tap type</th>
-              <th class="head">Tap name</th>
-              <th class="head">Date</th>
-              <th class="head">Receiver</th>
-              <th class="head">Quantity</th>
-              <th class="head">Amount</th>
-              <th class="empty-head"></th>
-              <th class="empty-head"></th>
+              <td class="head">Tap type</td>
+              <td class="head">Tap name</td>
+              <td class="head">Date</td>
+              <td class="head">Receiver</td>
+              <td class="head">Quantity</td>
+              <td class="head">Amount</td>
+              <td class="empty-head"></td>
+              <td class="empty-head"></td>
           </tr>
       </thead>
       <tbody>

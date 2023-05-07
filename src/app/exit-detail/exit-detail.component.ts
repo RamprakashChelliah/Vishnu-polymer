@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../Service/SharedService';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarComponent } from '../snack-bar/snackbar.component';
 
@@ -13,6 +13,7 @@ import { SnackbarComponent } from '../snack-bar/snackbar.component';
 export class ExitDetailComponent implements OnInit, OnDestroy{
   addEntry = false;
   exitDetail: FormGroup;
+  searchForm: FormGroup;
   listDatas: any;
   amount= 0;
   hasAnyChanges = false;
@@ -46,7 +47,6 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
       this.listDatas.forEach(element => {
         let tapType = this.tapDetails.find(x => x.tapType == element.tapType);
         element.tapType = tapType.tapName;
-        console.log(tapType.tapName);
       });
     });
 
@@ -126,6 +126,21 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
       date: new FormControl('', Validators.required),
       quantity: new FormControl('', Validators.required),
     });
+
+    this.searchForm = new FormGroup({
+      search: new FormControl('')
+    });
+
+    this.searchForm.get('search').valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap(s => this.http.get('http://localhost:8000/exits', {
+        params:
+        {
+          "searchText": s
+        }
+      }))
+    ).subscribe(x => {this.listDatas = x});
 
     this.originalValue = this.exitDetail.getRawValue();
 

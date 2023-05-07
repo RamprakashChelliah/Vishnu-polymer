@@ -256,6 +256,7 @@ tbody tr:hover {
   }
 
   .filter{
+    margin-top: 1%;
     margin-left: 53%;
     font-size: 20px;
   }
@@ -340,7 +341,9 @@ tbody tr:hover {
   }
 
   #no-result-text {
-    margin-top: 10%;
+    position: absolute;
+    margin-top: 30%;
     font-size: 20px;
+    left: 25%;
   }
 }
