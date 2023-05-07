@@ -34,6 +34,15 @@
     <button mat-raised-button id="ok" (click)="onOk()">Ok</button>
     <button mat-raised-button id="cancel" (click)="onCancel()">Cancel</button>
   </div>
+  <form [formGroup]="searchForm">
+    <div class="search">
+      <input type="text" placeholder="Search with name" formControlName="search" id="search-bar">
+      <mat-icon>search</mat-icon>
+    </div>
+  </form>
+  <div class="filter">
+    <mat-icon>filter_list</mat-icon>
+  </div>
   <div class="tap-list-page">
     <table>
       <thead>

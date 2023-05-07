@@ -1,7 +1,7 @@
 .tap-detail {
   width: 100%;
   height: 100%;
-  margin-top: 80px;
+  margin-top: 60px;
   position: absolute;
   overflow: hidden;
 }
@@ -152,26 +152,58 @@
   color: rgb(207, 124, 45);
 }
 
-table {
+.search{
+  position: absolute;
   margin-left: 2%;
-  border-collapse: collapse;
+  margin-bottom: 1%;
+  width: 33%;
+  border: 2px solid #001b29;
+  border-radius: 25px;
+}
+
+#search-bar{
+  margin-left: 2%;
+  width: 80%;
+  padding: 8px;
+  border: none;
+  border-radius: 25px;
+}
+
+#search-bar:focus{
+  outline: none;
+}
+
+.filter{
+  margin-left: 40%;
+  font-size: 25px;
+}
+
+table {
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 1%;
   width: 75%;
+  overflow-y: scroll;
+  border-collapse: collapse;
   border: 1px solid rgb(113, 30, 180);
   font-size: 20px;
 }
 
 tr {
+  height: 40px;
   transition: all .2s ease-in;
 }
 
-thead {
+.head,
+.empty-head {
   background-color: rgb(113, 30, 180);
   color: white;
+  height: 15px;
 }
 
 .head,
 tbody td {
-  padding: 15px 20px;
+  padding: 5px 10px;
   width: 200px;
   text-align: center;
 }
@@ -200,7 +232,7 @@ tbody tr:hover {
 }
 
 //Screen width 480
-@media (max-width:48px) {
+@media (max-width:480px) {
   .tap-detail {
     width: 100%;
     margin-top: 50px;
@@ -208,23 +240,37 @@ tbody tr:hover {
     font-size: medium;
   }
 
+  .search{
+    margin-left: 5%;
+    width: 45%;
+  }
+
+  .search mat-icon{
+    margin-top: 2%;
+    margin-left: 85%;
+  }
+
+  #search-bar{
+    width: 73%;
+    position: absolute;
+  }
+
+  .filter{
+    margin-left: 53%;
+    font-size: 20px;
+  }
+
   table{
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 14px;
     width: 90%;
     margin-left: 5%;
   }
 
-  .head,
-  tbody td {
-    width: 50px;
-    padding: 10px 12px;
-  }
-
   .add-entry {
     position: absolute;
     margin-top: 0;
-    margin-left: 60%;
+    margin-left: 68%;
     height: 30px;
     width: 30px;
   }

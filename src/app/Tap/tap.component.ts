@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../Service/SharedService';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarComponent } from '../snack-bar/snackbar.component';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'tap',
@@ -14,6 +15,7 @@ export class TapComponent implements OnInit{
   title = 'Vishnu-polymers';
   addTap = false;
   tapInfo: FormGroup;
+  searchForm: FormGroup;
   listDatas: any;
   amount = 0;
   hasAnyChanges = false;
@@ -23,6 +25,7 @@ export class TapComponent implements OnInit{
   hasLoggedUser = false;
   subscribedStatus: Subscription;
   responseMessage: any;
+  searchText: any;
 
   constructor(private service: SharedService, private http: HttpClient,
     private snackbar: SnackbarComponent){
@@ -73,8 +76,6 @@ export class TapComponent implements OnInit{
     if(hasAnyError) return;
     this.addTap = false;
     this.FormInitialize();
-
-    console.log(this.listDatas);
   }
 
   closeTap(){
@@ -105,7 +106,26 @@ export class TapComponent implements OnInit{
       amount: new FormControl('', Validators.required),
     });
 
+    this.searchForm = new FormGroup({
+      search: new FormControl('')
+    })
+
+    this.searchForm.get('search').valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap(s => this.http.get('http://localhost:8000/taps', {
+        params:
+        {
+          "searchText": s
+        }
+      }))
+    ).subscribe(x => {this.listDatas = x, console.log(x)})
+
     this.originalValue = this.tapInfo.getRawValue();
+  }
+
+  onSearch(){
+
   }
 
   OnEdit(id){

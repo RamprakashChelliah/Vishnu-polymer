@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../Service/SharedService';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarComponent } from '../snack-bar/snackbar.component';
 
@@ -13,6 +13,7 @@ import { SnackbarComponent } from '../snack-bar/snackbar.component';
 export class RecordDetailComponent implements OnInit, OnDestroy{
   addEntry = false;
   entryDetail: FormGroup;
+  searchForm: FormGroup;
   listDatas: any;
   amount= 0;
   hasAnyChanges = false;
@@ -124,6 +125,21 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
       date: new FormControl('', Validators.required),
       quantity: new FormControl('', Validators.required),
     });
+
+    this.searchForm = new FormGroup({
+      search: new FormControl('')
+    });
+
+    this.searchForm.get('search').valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap(s => this.http.get('http://localhost:8000/entries', {
+        params:
+        {
+          "searchText": s
+        }
+      }))
+    ).subscribe(x => {this.listDatas = x, console.log(x)});
 
     this.originalValue = this.entryDetail.getRawValue();
 
