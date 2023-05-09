@@ -166,6 +166,7 @@
 }
 
 #search-bar{
+  position: absolute;
   margin-left: 2%;
   width: 80%;
   padding: 8px;
@@ -175,6 +176,11 @@
 
 #search-bar:focus{
   outline: none;
+}
+
+.search mat-icon{
+  margin-top: 1%;
+  margin-left: 85%;
 }
 
 .filter{
