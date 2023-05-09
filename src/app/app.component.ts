@@ -28,22 +28,27 @@ export class AppComponent implements OnDestroy{
 
   home(){
     this.router.navigateByUrl('');
+    if(window.innerWidth <= 480) this.closeMenu();
   }
 
   navigateTapInfo(){
     this.router.navigateByUrl('tap');
+    if(window.innerWidth <= 480) this.closeMenu();
   }
 
   navigateEntryDetails(){
     this.router.navigateByUrl('record-detail');
+    if(window.innerWidth <= 480) this.closeMenu();
   }
 
   navigateExitDetails(){
     this.router.navigateByUrl('exit-detail');
+    if(window.innerWidth <= 480) this.closeMenu();
   }
 
   logIn(){
     this.router.navigateByUrl('login');
+    if(window.innerWidth <= 480) this.closeMenu();
   }
 
   logOut()
@@ -51,6 +56,10 @@ export class AppComponent implements OnDestroy{
     this.service.logOut();
   }
 
+  closeMenu(){
+    let menu_checkbox = document.getElementById('menu') as HTMLInputElement;
+    menu_checkbox.checked = false;
+  }
   // receivedData(event){
   //   this.hasLoggedUser = event;
   //   console.log(event, 456);
