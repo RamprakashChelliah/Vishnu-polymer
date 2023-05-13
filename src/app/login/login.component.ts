@@ -49,7 +49,7 @@ export class LoginComponent{
 
   login(){
     var hasAnyError = false;
-    this.http.post<any>("http://localhost:8000/auth/login", {
+    this.http.post<any>("https://vishnu-polymer-api.onrender.com/auth/login", {
       email: this.loginInfo.value.email,
       password: this.loginInfo.value.password
     }).subscribe(x => {
@@ -76,7 +76,7 @@ export class LoginComponent{
 
   createAccount(){
     var hasAnyError = false;
-    this.http.post<any>("http://localhost:8000/auth/register", {
+    this.http.post<any>("https://vishnu-polymer-api.onrender.com/auth/register", {
       email: this.signUpInfo.value.email,
       password: this.signUpInfo.value.psw
     }).subscribe(x => {
@@ -102,7 +102,7 @@ export class LoginComponent{
 
   changePassword(){
     var hasAnyError = false;
-    this.http.put<any>("http://localhost:8000/auth/password-reset", {
+    this.http.put<any>("https://vishnu-polymer-api.onrender.com/auth/password-reset", {
       email: this.userInfo.value.email,
       password: this.userInfo.value.psw
     }).subscribe(x => {

@@ -42,7 +42,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(){
-    this.http.get("http://localhost:8000/entries").subscribe(x => {
+    this.http.get("https://vishnu-polymer-api.onrender.com/entries").subscribe(x => {
       this.listDatas = x,
       this.listDatas.forEach(element => {
         let tapType = this.tapDetails.find(x => x.tapType == element.tapType);
@@ -74,7 +74,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
       this.entryDetail.value.amount = tapDetail.amount * this.entryDetail.value.quantity
     }
 
-    this.http.post<any>("http://localhost:8000/entries", {
+    this.http.post<any>("https://vishnu-polymer-api.onrender.com/entries", {
       tapType: tapDetail.tapType,
       tapName: this.entryDetail.value.tapName,
       date: this.entryDetail.value.date,
@@ -132,7 +132,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
     this.searchForm.get('search').valueChanges.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap(s => this.http.get('http://localhost:8000/entries', {
+      switchMap(s => this.http.get('https://vishnu-polymer-api.onrender.com/entries', {
         params:
         {
           "searchText": s
@@ -185,7 +185,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
       this.entryDetail.value.amount = tapDetail.amount * this.entryDetail.value.quantity
     }
 
-    this.http.put<any>("http://localhost:8000/entries/" + this.entryDetail.value.id, {
+    this.http.put<any>("https://vishnu-polymer-api.onrender.com/entries/" + this.entryDetail.value.id, {
       tapName: this.entryDetail.value.tapName,
       date: this.entryDetail.value.date,
       quantity: this.entryDetail.value.quantity,
@@ -216,7 +216,7 @@ export class RecordDetailComponent implements OnInit, OnDestroy{
 
   DeleteEntry(id){
     var hasAnyError = false;
-    this.http.delete<any>("http://localhost:8000/entries/" + id).subscribe(x => {
+    this.http.delete<any>("https://vishnu-polymer-api.onrender.com/entries/" + id).subscribe(x => {
       this.responseMessage = x,
       this.snackbar.openSnackbar(this.responseMessage);
         (err) => {

@@ -12,7 +12,7 @@ export class ApiService{
   }
 
   registerNewUser(data:any){
-    this.http.post("http://localhost:8000/auth/register", {
+    this.http.post("https://vishnu-polymer-api.onrender.com/auth/register", {
       email: data.email,
       password: data.psw
     }).subscribe((x) => { return x});

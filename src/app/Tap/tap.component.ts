@@ -41,7 +41,7 @@ export class TapComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.http.get('http://localhost:8000/taps')
+    this.http.get('https://vishnu-polymer-api.onrender.com/taps')
     .subscribe(x => this.listDatas = x)
     this.hasShowAddButton = true;
     this.FormInitialize();
@@ -58,7 +58,7 @@ export class TapComponent implements OnInit{
   addNewTap(){
     var hasAnyError = false;
     var responseData: any;
-    this.http.post<any>("http://localhost:8000/taps", {
+    this.http.post<any>("https://vishnu-polymer-api.onrender.com/taps", {
       tapType: this.tapInfo.value.tapType,
       tapName: this.tapInfo.value.tapName,
       amount: this.tapInfo.value.amount
@@ -113,7 +113,7 @@ export class TapComponent implements OnInit{
     this.searchForm.get('search').valueChanges.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap(s => this.http.get('http://localhost:8000/taps', {
+      switchMap(s => this.http.get('https://vishnu-polymer-api.onrender.com/taps', {
         params:
         {
           "searchText": s
@@ -155,7 +155,7 @@ export class TapComponent implements OnInit{
 
   DeleteEntry(id){
     var hasAnyError = false;
-    this.http.delete<any>("http://localhost:8000/taps/" + id).subscribe(x => {
+    this.http.delete<any>("https://vishnu-polymer-api.onrender.com/taps/" + id).subscribe(x => {
       this.responseMessage = x,
       this.snackbar.openSnackbar(this.responseMessage);
         (err) => {

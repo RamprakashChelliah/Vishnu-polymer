@@ -42,7 +42,7 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(){
-    this.http.get("http://localhost:8000/exits").subscribe(x => {
+    this.http.get("https://vishnu-polymer-api.onrender.com/exits").subscribe(x => {
       this.listDatas = x,
       this.listDatas.forEach(element => {
         let tapType = this.tapDetails.find(x => x.tapType == element.tapType);
@@ -74,7 +74,7 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
       this.exitDetail.value.amount = tapDetail.amount * this.exitDetail.value.quantity
     }
 
-    this.http.post<any>("http://localhost:8000/exits", {
+    this.http.post<any>("https://vishnu-polymer-api.onrender.com/exits", {
       tapType: tapDetail.tapType,
       tapName: this.exitDetail.value.tapName,
       date: this.exitDetail.value.date,
@@ -134,7 +134,7 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
     this.searchForm.get('search').valueChanges.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap(s => this.http.get('http://localhost:8000/exits', {
+      switchMap(s => this.http.get('https://vishnu-polymer-api.onrender.com/exits', {
         params:
         {
           "searchText": s
@@ -188,7 +188,7 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
       this.exitDetail.value.amount = tapDetail.amount * this.exitDetail.value.quantity
     }
 
-    this.http.put<any>("http://localhost:8000/exits/" + this.exitDetail.value.id, {
+    this.http.put<any>("https://vishnu-polymer-api.onrender.com/exits/" + this.exitDetail.value.id, {
       tapName: this.exitDetail.value.tapName,
       date: this.exitDetail.value.date,
       quantity: this.exitDetail.value.quantity,
@@ -221,7 +221,7 @@ export class ExitDetailComponent implements OnInit, OnDestroy{
 
   DeleteEntry(id){
     var hasAnyError = false;
-    this.http.delete<any>("http://localhost:8000/exits/" + id).subscribe(x => {
+    this.http.delete<any>("https://vishnu-polymer-api.onrender.com/exits/" + id).subscribe(x => {
       this.responseMessage = x,
       this.snackbar.openSnackbar(this.responseMessage);
         (err) => {
