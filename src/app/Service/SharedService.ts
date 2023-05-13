@@ -16,7 +16,7 @@ export class SharedService{
   constructor(private snackbar: SnackbarComponent, private http: HttpClient){
     var email = sessionStorage.getItem("email");
     if(email != null){
-      this.http.get('http://localhost:8000/taps')
+      this.http.get('https://vishnu-polymer-api.onrender.com/taps')
     .subscribe(x => this.tapDetails.next(x))
     }
   }
@@ -25,7 +25,7 @@ export class SharedService{
     this.hasLoggedUser.next(value);
     sessionStorage.setItem("email", email);
 
-    this.http.get('http://localhost:8000/taps')
+    this.http.get('https://vishnu-polymer-api.onrender.com/taps')
     .subscribe(x => this.tapDetails.next(x))
   }
 
